@@ -1,11 +1,12 @@
 export const personalInfo = {
+  greeting: "Hello 👋",
   name: "Elite",
   role: "Frontend Developer",
   location: "Delhi, India",
-  email: "your@email.com",
-
   description:
-    "I build responsive and modern web applications using React, JavaScript and Tailwind CSS.",
+    "I build fast, responsive and modern web applications using React, JavaScript and Tailwind CSS.",
+  image:
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600",
 };
 
 export const navLinks = [
