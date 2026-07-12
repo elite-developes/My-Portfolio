@@ -1,0 +1,11 @@
+function Footer() {
+  return (
+    <footer className="py-8 text-center border-t">
+      <p>
+        © 2026 Elite. All rights reserved.
+      </p>
+    </footer>
+  );
+}
+
+export default Footer;
