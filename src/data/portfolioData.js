@@ -83,3 +83,81 @@ export const highlights = [
     icon: "rocket",
   },
 ];
+
+export const skillCategories = [
+  {
+    id: 1,
+    title: "Frontend",
+    skills: [
+      {
+        id: 1,
+        name: "HTML",
+        level: 95,
+      },
+      {
+        id: 2,
+        name: "CSS",
+        level: 90,
+      },
+      {
+        id: 3,
+        name: "JavaScript",
+        level: 85,
+      },
+      {
+        id: 4,
+        name: "React",
+        level: 80,
+      },
+      {
+        id: 5,
+        name: "Tailwind CSS",
+        level: 85,
+      },
+    ],
+  },
+
+  {
+    id: 2,
+    title: "Backend",
+    skills: [
+      {
+        id: 1,
+        name: "Node.js",
+        level: 65,
+      },
+      {
+        id: 2,
+        name: "Express.js",
+        level: 60,
+      },
+    ],
+  },
+
+  {
+    id: 3,
+    title: "Tools",
+    skills: [
+      {
+        id: 1,
+        name: "Git",
+        level: 85,
+      },
+      {
+        id: 2,
+        name: "GitHub",
+        level: 90,
+      },
+      {
+        id: 3,
+        name: "VS Code",
+        level: 95,
+      },
+      {
+        id: 4,
+        name: "Figma",
+        level: 70,
+      },
+    ],
+  },
+];
