@@ -2,6 +2,7 @@ function Button({
   text,
   href = "#",
   variant = "primary",
+  target = "_self",
 }) {
   const baseClasses =
     "px-6 py-3 rounded-lg font-semibold transition duration-300 inline-block";
@@ -17,6 +18,12 @@ function Button({
   return (
     <a
       href={href}
+      target={target}
+      rel={
+        target === "_blank"
+          ? "noopener noreferrer"
+          : undefined
+      }
       className={`${baseClasses} ${variants[variant]}`}
     >
       {text}

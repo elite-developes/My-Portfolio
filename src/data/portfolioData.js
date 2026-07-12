@@ -161,3 +161,69 @@ export const skillCategories = [
     ],
   },
 ];
+
+export const projects = [
+  {
+    id: 1,
+
+    title: "Weather App",
+
+    description:
+      "A responsive weather application built using React and OpenWeather API.",
+
+    image:
+      "https://picsum.photos/600/400?random=1",
+
+    technologies: [
+      "React",
+      "CSS",
+      "API",
+    ],
+
+    github: "#",
+
+    live: "#",
+  },
+
+  {
+    id: 2,
+
+    title: "Portfolio Website",
+
+    description:
+      "A modern personal portfolio built with React and Tailwind CSS.",
+
+    image:
+      "https://picsum.photos/600/400?random=2",
+
+    technologies: [
+      "React",
+      "Tailwind CSS",
+    ],
+
+    github: "#",
+
+    live: "#",
+  },
+
+  {
+    id: 3,
+
+    title: "Todo App",
+
+    description:
+      "A task management application with local storage support.",
+
+    image:
+      "https://picsum.photos/600/400?random=3",
+
+    technologies: [
+      "React",
+      "JavaScript",
+    ],
+
+    github: "#",
+
+    live: "#",
+  },
+];
