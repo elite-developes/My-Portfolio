@@ -1,5 +1,6 @@
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
@@ -21,6 +22,7 @@ function App() {
       </main>
 
       <Footer />
+      <ScrollToTop/>
     </>
   );
 }

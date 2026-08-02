@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 function Button({
   text,
   href = "#",
@@ -5,7 +7,7 @@ function Button({
   target = "_self",
 }) {
   const baseClasses =
-    "px-6 py-3 rounded-lg font-semibold transition duration-300 inline-block";
+    "inline-block px-6 py-3 rounded-lg font-semibold transition duration-300";
 
   const variants = {
     primary:
@@ -16,7 +18,7 @@ function Button({
   };
 
   return (
-    <a
+    <motion.a
       href={href}
       target={target}
       rel={
@@ -24,10 +26,21 @@ function Button({
           ? "noopener noreferrer"
           : undefined
       }
+      whileHover={{
+        scale: 1.05,
+        y: -3,
+      }}
+      whileTap={{
+        scale: 0.95,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+      }}
       className={`${baseClasses} ${variants[variant]}`}
     >
       {text}
-    </a>
+    </motion.a>
   );
 }
 

@@ -1,7 +1,34 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
+import {
+  MdEmail,
+  MdLocationOn,
+  MdWork,
+} from "react-icons/md";
+
+import {
+  FaGithub,
+  FaLinkedin,
+} from "react-icons/fa";
+
+import SectionHeading from "../ui/SectionHeading";
+import ContactInfoCard from "../ui/ContactInfoCard";
+import Button from "../ui/Button";
+
+import {
+  contactInfo,
+} from "../../data/portfolioData";
+
 function Contact() {
+  const icons = {
+    email: <MdEmail />,
+    location: <MdLocationOn />,
+    github: <FaGithub />,
+    linkedin: <FaLinkedin />,
+    availability: <MdWork />,
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,20 +38,10 @@ function Contact() {
 
   const [loading, setLoading] = useState(false);
 
-  const [successMessage, setSuccessMessage] = useState("");
+  const [status, setStatus] = useState("");
 
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const [lastSentTime, setLastSentTime] = useState("");
-
-  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-
-  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-
-  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-  function handleChange(event) {
-    const { name, value } = event.target;
+  function handleChange(e) {
+    const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
@@ -32,37 +49,46 @@ function Contact() {
     }));
   }
 
-  const isFormValid =
-    formData.name.trim() &&
-    formData.email.trim() &&
-    formData.subject.trim() &&
-    formData.message.trim();
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      setStatus("Please fill in all fields.");
+      return;
+    }
 
-    setLoading(true);
+    const emailPattern =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    setSuccessMessage("");
-
-    setErrorMessage("");
-
-    const templateParams = {
-      user_name: formData.name,
-      user_email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    };
+    if (!emailPattern.test(formData.email)) {
+      setStatus("Please enter a valid email address.");
+      return;
+    }
 
     try {
-      console.log("Service ID:", serviceId);
-      console.log("Template ID:", templateId);
-      console.log("Public Key:", publicKey);
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setLoading(true);
+      setStatus("");
 
-      setSuccessMessage("✅ Message Sent Successfully!");
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-      setLastSentTime(new Date().toLocaleTimeString());
+      setStatus(
+        "✅ Message sent successfully! I'll get back to you soon."
+      );
 
       setFormData({
         name: "",
@@ -70,95 +96,167 @@ function Contact() {
         subject: "",
         message: "",
       });
-
-      setTimeout(() => {
-        setSuccessMessage("");
-      }, 3000);
     } catch (error) {
       console.error(error);
 
-      setErrorMessage("❌ Something went wrong. Please try again.");
+      setStatus(
+        "❌ Something went wrong. Please try again."
+      );
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <section id="contact" className="py-24 px-6 bg-gray-50">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold">Contact Me</h2>
+    <section
+      id="contact"
+      className="py-24 bg-white scroll-mt-24"
+    >
+      <div className="max-w-7xl mx-auto px-8">
+        <SectionHeading
+          subtitle="Contact"
+          title="Let's Build Something Amazing"
+          description="Whether you have a project, internship opportunity or just want to say hello, I'd love to hear from you."
+        />
 
-          <p className="mt-6 text-gray-600 leading-8">
-            Have a project in mind?
-            <br />
-            Let's work together.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-16 mt-16">
+          {/* Left */}
 
-        <form onSubmit={handleSubmit} className="mt-12 space-y-6">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-          />
+          <div className="space-y-6">
+            {contactInfo.map((item) => (
+              <ContactInfoCard
+                key={item.id}
+                icon={icons[item.type]}
+                title={item.title}
+                value={item.value}
+                href={item.href}
+              />
+            ))}
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-          />
+          {/* Right */}
 
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-          />
-
-          <textarea
-            rows="6"
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-4 rounded-xl border border-gray-300 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-          />
-
-          {successMessage && (
-            <p className="text-green-600 font-medium">{successMessage}</p>
-          )}
-
-          {errorMessage && (
-            <p className="text-red-600 font-medium">{errorMessage}</p>
-          )}
-
-          {lastSentTime && (
-            <p className="text-sm text-gray-500">
-              Last message sent at: {lastSentTime}
-            </p>
-          )}
-
-          <button
-            type="submit"
-            disabled={!isFormValid || loading}
-            className={`w-full py-4 rounded-xl font-semibold transition ${
-              !isFormValid || loading
-                ? "bg-gray-400 text-white cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700 text-white"
-            }`}
+          <div
+            className="
+              bg-white
+              rounded-3xl
+              border
+              border-slate-200
+              shadow-sm
+              p-8
+            "
           >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
+            {status && (
+              <div
+                className={`
+                  mb-6
+                  rounded-xl
+                  p-4
+                  ${
+                    status.startsWith("✅")
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-700"
+                  }
+                `}
+              >
+                {status}
+              </div>
+            )}
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-5"
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="
+                  w-full
+                  border
+                  border-slate-300
+                  rounded-xl
+                  px-5
+                  py-4
+                  outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
+                "
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+                className="
+                  w-full
+                  border
+                  border-slate-300
+                  rounded-xl
+                  px-5
+                  py-4
+                  outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
+                "
+              />
+
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="
+                  w-full
+                  border
+                  border-slate-300
+                  rounded-xl
+                  px-5
+                  py-4
+                  outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
+                "
+              />
+
+              <textarea
+                rows={6}
+                name="message"
+                placeholder="Write your message..."
+                value={formData.message}
+                onChange={handleChange}
+                className="
+                  w-full
+                  border
+                  border-slate-300
+                  rounded-xl
+                  px-5
+                  py-4
+                  resize-none
+                  outline-none
+                  focus:ring-2
+                  focus:ring-blue-500
+                "
+              />
+
+              <Button
+                type="submit"
+                disabled={loading}
+                text={
+                  loading
+                    ? "⏳ Sending..."
+                    : "Send Message →"
+                }
+                fullWidth
+              />
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );

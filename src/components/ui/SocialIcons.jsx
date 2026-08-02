@@ -1,38 +1,47 @@
 import {
   FaGithub,
   FaLinkedin,
-  FaEnvelope,
 } from "react-icons/fa";
+
+import { MdEmail } from "react-icons/md";
 
 import { socialLinks } from "../../data/portfolioData";
 
-function SocialIcons() {
+function SocialIcons({ size = "text-2xl" }) {
+  const icons = {
+    GitHub: <FaGithub />,
+    LinkedIn: <FaLinkedin />,
+    Email: <MdEmail />,
+  };
+
   return (
-    <div className="flex items-center gap-6 text-2xl mt-8">
-      <a
-        href={socialLinks.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-blue-600 transition duration-300"
-      >
-        <FaGithub />
-      </a>
-
-      <a
-        href={socialLinks.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-blue-600 transition duration-300"
-      >
-        <FaLinkedin />
-      </a>
-
-      <a
-        href={socialLinks.email}
-        className="hover:text-blue-600 transition duration-300"
-      >
-        <FaEnvelope />
-      </a>
+    <div className={`flex items-center gap-5 ${size}`}>
+      {socialLinks.map((social) => (
+        <a
+          key={social.id}
+          href={social.url}
+          target={
+            social.name === "Email"
+              ? "_self"
+              : "_blank"
+          }
+          rel={
+            social.name === "Email"
+              ? undefined
+              : "noopener noreferrer"
+          }
+          aria-label={social.name}
+          className="
+            text-gray-700
+            transition-all
+            duration-300
+            hover:text-blue-600
+            hover:-translate-y-1
+          "
+        >
+          {icons[social.name]}
+        </a>
+      ))}
     </div>
   );
 }

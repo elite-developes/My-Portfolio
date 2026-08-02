@@ -1,36 +1,70 @@
-import { useEffect, useState } from "react";
-
-function SkillCard({ name, level }) {
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setWidth(level);
-    }, 200);
-
-    return () => clearTimeout(timer);
-  }, [level]);
-
+function SkillCard({
+  icon,
+  name,
+  category,
+}) {
   return (
-    <div className="space-y-2">
-      <div className="flex justify-between">
-        <h4 className="font-medium">
-          {name}
-        </h4>
+    <div
+      className="
+      group
+      bg-white
+      border
+      border-gray-200
+      rounded-2xl
+      p-6
+      text-center
+      shadow-sm
+      transition-all
+      duration-300
+      hover:-translate-y-2
+      hover:shadow-xl
+      "
+    >
+      {/* Icon */}
 
-        <span className="text-sm text-gray-500">
-          {level}%
-        </span>
+      <div
+        className="
+        flex
+        justify-center
+        items-center
+        w-16
+        h-16
+        mx-auto
+        rounded-full
+        bg-blue-50
+        text-blue-600
+        text-3xl
+        transition-all
+        duration-300
+        group-hover:bg-blue-600
+        group-hover:text-white
+        "
+      >
+        {icon}
       </div>
 
-      <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-blue-600 rounded-full transition-all duration-1000"
-          style={{
-            width: `${width}%`,
-          }}
-        />
-      </div>
+      {/* Skill Name */}
+
+      <h3
+        className="
+        mt-5
+        text-xl
+        font-semibold
+        "
+      >
+        {name}
+      </h3>
+
+      {/* Category */}
+
+      <p
+        className="
+        mt-2
+        text-gray-500
+        "
+      >
+        {category}
+      </p>
     </div>
   );
 }

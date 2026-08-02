@@ -1,65 +1,105 @@
 import Button from "./Button";
 
 function ProjectCard({
-  image,
   title,
   description,
+  image,
   technologies,
   github,
   live,
+  featured = false,
 }) {
   return (
-    <div
+    <article
       className="
-      group
       bg-white
       rounded-2xl
-      shadow-lg
       overflow-hidden
-      hover:-translate-y-2
+      border
+      border-gray-200
+      shadow-sm
       hover:shadow-xl
-      transition
+      transition-all
       duration-300
+      hover:-translate-y-2
       "
     >
-      {/* Image */}
-      <div className="overflow-hidden">
+      {/* Project Image */}
+
+      <div className="relative overflow-hidden">
+
+        {featured && (
+          <span
+            className="
+            absolute
+            top-4
+            left-4
+            z-10
+            bg-blue-600
+            text-white
+            text-xs
+            font-semibold
+            px-3
+            py-1
+            rounded-full
+            "
+          >
+            Featured
+          </span>
+        )}
+
         <img
           src={image}
           alt={title}
           className="
           w-full
-          h-52
+          h-60
           object-cover
-          transition
+          transition-transform
           duration-500
-          group-hover:scale-105
+          hover:scale-105
           "
         />
       </div>
 
       {/* Content */}
+
       <div className="p-6">
+
         <h3 className="text-2xl font-bold">
           {title}
         </h3>
 
-        <p className="text-gray-600 mt-4 leading-7">
+        <p
+          className="
+          mt-4
+          text-slate-600
+          leading-7
+          "
+        >
           {description}
         </p>
 
         {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mt-6">
-          {technologies.map((tech, index) => (
+
+        <div
+          className="
+          flex
+          flex-wrap
+          gap-2
+          mt-6
+          "
+        >
+          {(technologies ?? []).map((tech) => (
             <span
-              key={index}
+              key={tech}
               className="
-              bg-blue-100
+              bg-blue-50
               text-blue-700
+              text-sm
               px-3
               py-1
               rounded-full
-              text-sm
               "
             >
               {tech}
@@ -68,22 +108,26 @@ function ProjectCard({
         </div>
 
         {/* Buttons */}
+
         <div className="flex gap-4 mt-8">
-          <Button
-            text="GitHub"
-            href={github}
-            variant="secondary"
-            target="_blank"
-          />
 
           <Button
             text="Live Demo"
             href={live}
             target="_blank"
           />
+
+          <Button
+            text="GitHub"
+            href={github}
+            target="_blank"
+            variant="secondary"
+          />
+
         </div>
+
       </div>
-    </div>
+    </article>
   );
 }
 

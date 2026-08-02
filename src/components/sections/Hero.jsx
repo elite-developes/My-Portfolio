@@ -1,5 +1,3 @@
-import { FaLocationDot } from "react-icons/fa6";
-
 import Button from "../ui/Button";
 import SocialIcons from "../ui/SocialIcons";
 
@@ -9,55 +7,193 @@ function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center bg-gray-50"
+      className="
+        min-h-screen
+        flex
+        items-center
+        bg-gradient-to-br
+        from-white
+        via-slate-50
+        to-blue-50
+        scroll-mt-24
+      "
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center px-6">
-        {/* Left Side */}
+      <div className="max-w-7xl mx-auto px-8 py-24 grid lg:grid-cols-2 gap-20 items-center">
+        {/* Left Content */}
+
         <div>
-          <p className="text-blue-600 text-lg font-medium">
+          {/* Availability Badge */}
+
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-2
+              px-4
+              py-2
+              rounded-full
+              bg-green-100
+              text-green-700
+              text-sm
+              font-medium
+              mb-8
+            "
+          >
+            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+            Available for Opportunities
+          </div>
+
+          {/* Greeting */}
+
+          <p
+            className="
+              uppercase
+              tracking-[4px]
+              text-sm
+              font-semibold
+              text-blue-600
+            "
+          >
             {personalInfo.greeting}
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold mt-4">
+          {/* Name */}
+
+          <h1
+            className="
+              mt-4
+              text-6xl
+              md:text-7xl
+              font-extrabold
+              leading-none
+              text-slate-900
+            "
+          >
             {personalInfo.name}
           </h1>
 
-          <h2 className="text-2xl text-gray-600 mt-4">
+          {/* Role */}
+
+          <h2
+            className="
+              mt-6
+              text-3xl
+              font-semibold
+              text-slate-700
+            "
+          >
             {personalInfo.role}
           </h2>
 
-          <p className="text-gray-600 leading-8 mt-6 max-w-xl">
+          {/* Description */}
+
+          <p
+            className="
+              mt-8
+              max-w-xl
+              text-lg
+              leading-9
+              text-slate-600
+            "
+          >
             {personalInfo.description}
           </p>
 
-          <div className="flex items-center gap-2 mt-6 text-gray-500">
-            <FaLocationDot className="text-red-500" />
-            <span>{personalInfo.location}</span>
+          <div className="flex flex-wrap gap-6 mt-8 text-slate-600">
+            <span>📍 Delhi, India</span>
+
+            <span>💼 Open for opportunities</span>
+
+            <span>⚡ Devops Enthusiast</span>
           </div>
 
-          <div className="flex flex-wrap gap-4 mt-8">
-            <Button
-              text="Hire Me"
-              variant="primary"
-            />
+          {/* Buttons */}
+
+          <div className="flex flex-wrap gap-6 mt-10">
+            <Button text="View Projects" href="#projects" />
 
             <Button
               text="Download Resume"
+              href={personalInfo.resume}
+              target="_blank"
               variant="secondary"
             />
           </div>
 
-          <SocialIcons />
+          {/* Social Icons */}
+
+          <div className="mt-12">
+            <SocialIcons />
+          </div>
         </div>
 
-        {/* Right Side */}
+        {/* Right Content */}
+
         <div className="flex justify-center">
-          <img
-            src={personalInfo.image}
-            alt={personalInfo.name}
-            className="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover border-4 border-blue-500 shadow-2xl hover:scale-105 transition duration-300"
-          />
+          {/* Gradient Ring */}
+
+          <div
+            className="
+              p-2
+              rounded-full
+              bg-gradient-to-r
+              from-blue-600
+              via-indigo-500
+              to-cyan-400
+              shadow-2xl
+            "
+          >
+            {/* White Ring */}
+
+            <div className="p-2 rounded-full bg-white">
+              {/* Image */}
+
+              <div
+                className="
+                  w-80
+                  h-80
+                  md:w-[420px]
+                  md:h-[420px]
+                  rounded-full
+                  overflow-hidden
+                "
+              >
+                <img
+                  src={personalInfo.image}
+                  alt={personalInfo.name}
+                  className="
+                    w-full
+                    h-full
+                    object-cover
+                    transition-transform
+                    duration-500
+                    hover:scale-105
+                  "
+                />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Scroll Indicator */}
+
+      <div
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          -translate-x-1/2
+          hidden
+          lg:flex
+          flex-col
+          items-center
+          text-slate-500
+        "
+      >
+        <span className="text-sm tracking-widest uppercase">Scroll</span>
+
+        <span className="mt-2 text-2xl">↓</span>
       </div>
     </section>
   );
