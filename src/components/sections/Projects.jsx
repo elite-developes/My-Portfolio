@@ -14,11 +14,8 @@ function Projects() {
   );
 
   return (
-    <section
-      id="projects"
-      className="py-24 bg-slate-50 scroll-mt-24"
-    >
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="projects" className="scroll-mt-24 bg-slate-50 py-24 dark:bg-slate-900/70">
+      <div className="mx-auto max-w-7xl px-8">
 
         <SectionHeading
           subtitle="Portfolio"

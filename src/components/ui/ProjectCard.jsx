@@ -10,20 +10,8 @@ function ProjectCard({
   featured = false,
 }) {
   return (
-    <article
-      className="
-      bg-white
-      rounded-2xl
-      overflow-hidden
-      border
-      border-gray-200
-      shadow-sm
-      hover:shadow-xl
-      transition-all
-      duration-300
-      hover:-translate-y-2
-      "
-    >
+    <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/95">
+
       {/* Project Image */}
 
       <div className="relative overflow-hidden">
@@ -66,17 +54,11 @@ function ProjectCard({
 
       <div className="p-6">
 
-        <h3 className="text-2xl font-bold">
+        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
           {title}
         </h3>
 
-        <p
-          className="
-          mt-4
-          text-slate-600
-          leading-7
-          "
-        >
+        <p className="mt-4 leading-7 text-slate-600 dark:text-slate-400">
           {description}
         </p>
 
@@ -91,17 +73,8 @@ function ProjectCard({
           "
         >
           {(technologies ?? []).map((tech) => (
-            <span
-              key={tech}
-              className="
-              bg-blue-50
-              text-blue-700
-              text-sm
-              px-3
-              py-1
-              rounded-full
-              "
-            >
+            <span key={tech} className="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+
               {tech}
             </span>
           ))}

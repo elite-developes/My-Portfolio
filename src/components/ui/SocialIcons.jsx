@@ -31,13 +31,7 @@ function SocialIcons({ size = "text-2xl" }) {
               : "noopener noreferrer"
           }
           aria-label={social.name}
-          className="
-            text-gray-700
-            transition-all
-            duration-300
-            hover:text-blue-600
-            hover:-translate-y-1
-          "
+          className="text-gray-700 transition-all duration-300 hover:-translate-y-1 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
         >
           {icons[social.name]}
         </a>

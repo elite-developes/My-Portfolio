@@ -3,29 +3,8 @@ function CategoryCard({
   children,
 }) {
   return (
-    <div
-      className="
-      bg-white
-      rounded-3xl
-      border
-      border-slate-200
-      p-8
-      shadow-sm
-      hover:shadow-xl
-      transition-all
-      duration-300
-      "
-    >
-      <h3
-        className="
-        text-2xl
-        font-bold
-        text-slate-900
-        mb-8
-        "
-      >
-        {title}
-      </h3>
+    <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/95">
+      <h3 className="mb-8 text-2xl font-bold text-slate-900 dark:text-white">{title}</h3>
 
       {children}
     </div>

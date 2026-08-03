@@ -5,21 +5,8 @@ function ContactInfoCard({
   href,
 }) {
   const content = (
-    <div
-      className="
-      group
-      bg-white
-      rounded-3xl
-      border
-      border-slate-200
-      p-6
-      shadow-sm
-      transition-all
-      duration-300
-      hover:-translate-y-1
-      hover:shadow-xl
-      "
-    >
+    <div className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/95">
+
       <div
         className="
         w-14
@@ -40,24 +27,11 @@ function ContactInfoCard({
         {icon}
       </div>
 
-      <h3
-        className="
-        mt-6
-        text-lg
-        font-semibold
-        text-slate-900
-        "
-      >
+      <h3 className="mt-6 text-lg font-semibold text-slate-900 dark:text-white">
         {title}
       </h3>
 
-      <p
-        className="
-        mt-2
-        text-slate-600
-        break-all
-        "
-      >
+      <p className="mt-2 break-all text-slate-600 dark:text-slate-400">
         {value}
       </p>
     </div>

@@ -5,6 +5,12 @@ import {
   FaGitAlt,
   FaGithub,
   FaFigma,
+  FaCloud,
+  FaAws,
+  FaDocker,
+  FaJenkins,
+  FaPython,
+  FaLinux,
 } from "react-icons/fa";
 
 import {
@@ -14,6 +20,13 @@ import {
   SiTypescript,
   SiNextdotjs,
   SiNodedotjs,
+  SiKubernetes,
+  SiGithubactions,
+  SiDjango,
+  SiFastapi,
+  SiMysql,
+  SiMongodb,
+  SiLinux,
 } from "react-icons/si";
 
 import { VscCode } from "react-icons/vsc";
@@ -22,6 +35,7 @@ import SectionHeading from "../ui/SectionHeading";
 import CategoryCard from "../ui/CategoryCard";
 
 import { skillCategories } from "../../data/portfolioData";
+import { FaAmazon } from "react-icons/fa6";
 
 function Skills() {
   const icons = {
@@ -34,26 +48,29 @@ function Skills() {
   GitHub: <FaGithub />,
   "VS Code": <VscCode />,
   Postman: <SiPostman />,
-  Figma: <FaFigma />,
-  TypeScript: <SiTypescript />,
-  "Next.js": <SiNextdotjs />,
-  "Node.js": <SiNodedotjs />,
+  "Python":<FaPython />,
+  "Django":<SiDjango />,
+  "FastApi":<SiFastapi />,
+  "MySql":<SiMysql/>,
+  "Mongodb":<SiMongodb/>,
+  "Linux":<SiLinux />,
+  "Cloud Services": <FaAws />,
+  "Docker": <FaDocker/>,
+  "Kubernetes": <SiKubernetes/>,
+  "Jenkins":<FaJenkins/>,
+  "GitHub Actions":<SiGithubactions/>,
 };
 
   return (
-    <section
-      id="skills"
-      className="py-24 bg-white scroll-mt-24"
-    >
-      <div className="max-w-7xl mx-auto px-8">
-
+    <section id="skills" className="scroll-mt-24 bg-white py-24 dark:bg-slate-950">
+      <div className="mx-auto max-w-7xl px-8">
         <SectionHeading
           subtitle="Skills"
           title="Technologies I Work With"
           description="The technologies and tools I use to build responsive and scalable applications."
         />
 
-        <div className="space-y-10 mt-16">
+        <div className="mt-16 space-y-10">
 
           {skillCategories.map((category) => (
 

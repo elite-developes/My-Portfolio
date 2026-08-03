@@ -108,11 +108,8 @@ function Contact() {
   }
 
   return (
-    <section
-      id="contact"
-      className="py-24 bg-white scroll-mt-24"
-    >
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="contact" className="scroll-mt-24 bg-white py-24 dark:bg-slate-950">
+      <div className="mx-auto max-w-7xl px-8">
         <SectionHeading
           subtitle="Contact"
           title="Let's Build Something Amazing"
@@ -136,28 +133,15 @@ function Contact() {
 
           {/* Right */}
 
-          <div
-            className="
-              bg-white
-              rounded-3xl
-              border
-              border-slate-200
-              shadow-sm
-              p-8
-            "
-          >
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900/95">
+
             {status && (
               <div
-                className={`
-                  mb-6
-                  rounded-xl
-                  p-4
-                  ${
-                    status.startsWith("✅")
-                      ? "bg-green-100 text-green-700"
-                      : "bg-red-100 text-red-700"
-                  }
-                `}
+                className={`mb-6 rounded-xl p-4 ${
+                  status.startsWith("✅")
+                    ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300"
+                    : "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300"
+                }`}
               >
                 {status}
               </div>
@@ -173,17 +157,7 @@ function Contact() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="
-                  w-full
-                  border
-                  border-slate-300
-                  rounded-xl
-                  px-5
-                  py-4
-                  outline-none
-                  focus:ring-2
-                  focus:ring-blue-500
-                "
+                className="w-full rounded-xl border border-slate-300 bg-white px-5 py-4 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-400"
               />
 
               <input
@@ -192,17 +166,7 @@ function Contact() {
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleChange}
-                className="
-                  w-full
-                  border
-                  border-slate-300
-                  rounded-xl
-                  px-5
-                  py-4
-                  outline-none
-                  focus:ring-2
-                  focus:ring-blue-500
-                "
+                className="w-full rounded-xl border border-slate-300 bg-white px-5 py-4 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-400"
               />
 
               <input
@@ -211,17 +175,7 @@ function Contact() {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="
-                  w-full
-                  border
-                  border-slate-300
-                  rounded-xl
-                  px-5
-                  py-4
-                  outline-none
-                  focus:ring-2
-                  focus:ring-blue-500
-                "
+                className="w-full rounded-xl border border-slate-300 bg-white px-5 py-4 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-400"
               />
 
               <textarea
@@ -230,18 +184,7 @@ function Contact() {
                 placeholder="Write your message..."
                 value={formData.message}
                 onChange={handleChange}
-                className="
-                  w-full
-                  border
-                  border-slate-300
-                  rounded-xl
-                  px-5
-                  py-4
-                  resize-none
-                  outline-none
-                  focus:ring-2
-                  focus:ring-blue-500
-                "
+                className="w-full rounded-xl border border-slate-300 bg-white px-5 py-4 text-slate-900 outline-none transition resize-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-400"
               />
 
               <Button
@@ -250,7 +193,7 @@ function Contact() {
                 text={
                   loading
                     ? "⏳ Sending..."
-                    : "Send Message →"
+                    : "Send Message"
                 }
                 fullWidth
               />

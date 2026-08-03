@@ -31,142 +31,54 @@ function About() {
   ];
 
   return (
-    <section
-      id="about"
-      className="py-24 bg-slate-50 scroll-mt-24"
-    >
-      <div className="max-w-7xl mx-auto px-8">
-
+    <section id="about" className="scroll-mt-24 bg-slate-50 py-24 dark:bg-slate-900/70">
+      <div className="mx-auto max-w-7xl px-8">
         <SectionHeading
           subtitle="About Me"
           title="Cloud & DevOps Engineer"
           description="Turning manual, repetitive tasks into automated pipelines. Still early in my journey, but driven, hands-on, and ready to grow."
         />
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-
+        <div className="grid items-center gap-20 lg:grid-cols-2">
           {/* Left */}
 
           <div className="flex justify-center">
-
-            <div
-              className="
-              w-80
-              h-80
-              rounded-3xl
-              overflow-hidden
-              shadow-xl
-              "
-            >
+            <div className="h-80 w-80 overflow-hidden rounded-3xl shadow-xl">
               <img
                 src={personalInfo.image}
                 alt={personalInfo.name}
-                className="
-                w-full
-                h-full
-                object-cover
-                hover:scale-105
-                transition-transform
-                duration-500
-                "
+                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
-
           </div>
 
           {/* Right */}
 
           <div>
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Who am I?</h3>
 
-            <h3
-              className="
-              text-3xl
-              font-bold
-              text-slate-900
-              "
-            >
-              Who am I?
-            </h3>
+            <p className="mt-6 leading-8 text-slate-600 dark:text-slate-400">{about.description}</p>
 
-            <p
-              className="
-              mt-6
-              text-slate-600
-              leading-8
-              "
-            >
-              {about.description}
-            </p>
-
-            <div
-              className="
-              grid
-              sm:grid-cols-2
-              gap-5
-              mt-10
-              "
-            >
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
               {highlights.map((item) => (
-
                 <div
                   key={item.title}
-                  className="
-                  flex
-                  items-center
-                  gap-4
-                  p-4
-                  bg-white
-                  rounded-xl
-                  shadow-sm
-                  hover:shadow-lg
-                  transition-all
-                  duration-300
-                  "
+                  className="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-lg dark:bg-slate-800/90"
                 >
-                  <div
-                    className="
-                    w-12
-                    h-12
-                    rounded-full
-                    bg-blue-100
-                    text-blue-600
-                    flex
-                    items-center
-                    justify-center
-                    text-xl
-                    "
-                  >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-xl text-blue-600 dark:bg-blue-900/40 dark:text-blue-400">
                     {item.icon}
                   </div>
 
-                  <span
-                    className="
-                    font-semibold
-                    text-slate-800
-                    "
-                  >
-                    {item.title}
-                  </span>
-
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">{item.title}</span>
                 </div>
-
               ))}
             </div>
 
             <div className="mt-10">
-
-              <Button
-                text="Download Resume"
-                href={personalInfo.resume}
-                target="_blank"
-              />
-
+              <Button text="Download Resume" href={personalInfo.resume} target="_blank" />
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

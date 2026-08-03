@@ -30,7 +30,7 @@ export const personalInfo = {
 
   greeting: "Hello, I'm",
   
-  name: "Akshit",
+  name: "Harshit",
   
   role: "Full Stack Developer & DevOps Engineer",
   
@@ -75,34 +75,36 @@ export const skillCategories = [
   },
 
   {
-    title: "Tools",
+    title: "Backend",
     skills: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Postman",
-      "Figma",
+      "Python",
+      "Django",
+      "FastApi",
+      "MySql",
+      "Mongodb",
     ],
+  },
+  
+  {
+    title: "Technical Expertise ",
+    skills: [
+      "Linux",
+      "Cloud Services",
+      "Docker",
+      "Git",
+      // "GitHub Actions",
+    ],
+    
   },
 
   {
     title: "Learning",
     skills: [
-      "TypeScript",
-      "Next.js",
-      "Node.js",
+      
+      // "GitHub",
+      "Kubernetes",
+      "Jenkins",
     ],
-
-  },
-  {
-    title: "Math",
-    skills: [
-      "TypeScript",
-      "Next.js",
-      "Node.js",
-    ],
-
-
   },
 ];
 
@@ -147,8 +149,7 @@ export const contactInfo = [
   {
     id: 1,
     title: "Email",
-    value: "elite@example.com",
-    href: "mailto:elite@example.com",
+    value: "elitedevelopez@gmail.com",
     type: "email",
   },
   {
@@ -166,15 +167,15 @@ export const contactInfo = [
   {
     id: 4,
     title: "GitHub",
-    value: "github.com/yourusername",
-    href: "https://github.com/yourusername",
+    value: "github.com/elite-developes",
+    href: "https://github.com/elite-developes",
     type: "github",
   },
   {
     id: 5,
     title: "LinkedIn",
-    value: "linkedin.com/in/yourusername",
-    href: "https://linkedin.com/in/yourusername",
+    value: "linkedin.com/in/harshitgarg17",
+    href: "https://www.linkedin.com/in/harshitgarg17/",
     type: "linkedin",
   },
 ];
@@ -183,16 +184,16 @@ export const socialLinks = [
   {
     id: 1,
     name: "GitHub",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/elite-developes",
   },
   {
     id: 2,
     name: "LinkedIn",
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://www.linkedin.com/in/harshitgarg17/",
   },
   {
     id: 3,
     name: "Email",
-    url: "mailto:your@email.com",
+    url: "elitedevelopez@gmail.com",
   },
 ];
