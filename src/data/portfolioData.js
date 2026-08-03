@@ -37,11 +37,11 @@ export const personalInfo = {
   description:
   "Building full stack apps with Python, Django & React — now learning Docker, AWS, and CI/CD to take them further. Open to full-time opportunities.",
   
-  image: "/src/assets/images/profile.jpg",
+  image: "/profile.jpg",
 
   logo : "EDevelopes",
   
-  resume: "/src/assets/resume/resume.pdf",
+  resume: "/resume.pdf",
 };
 
 // ===============================
